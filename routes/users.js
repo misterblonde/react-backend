@@ -50,7 +50,7 @@ router.post("/", function (req, res) {
 
   console.log(newEntry);
   //   JSON.stringify(newEntry)
-  myDB.push(JSON.stringify(newEntry)); // req worked also for julika example JSON.stringify
+  myDB.push(newEntry); // req worked also for julika example JSON.stringify
   console.log("New entry added: ", myDB);
 });
 
