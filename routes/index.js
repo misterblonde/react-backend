@@ -15,6 +15,10 @@ app.use(bodyParser.json());
 //   })
 // );
 
+// var project1 = express();
+// app.use("/project", project);
+app.use("/project", require("./project"));
+
 /* GET home page. */
 app.get("/", function (req, res, next) {
   res.render("index", { title: "Express" });
