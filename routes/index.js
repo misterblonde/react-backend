@@ -2,6 +2,10 @@ var express = require("express");
 var router = express.Router();
 var cors = require("cors");
 var bodyParser = require("body-parser");
+
+// if (process.env.NODE_ENV == "production") {
+// }
+
 var app = express();
 app.use(cors());
 
