@@ -7,7 +7,13 @@ var bodyParser = require("body-parser");
 // }
 
 var app = express();
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://master.djf2f3efc4uda.amplifyapp.com"],
+    optionsSuccessStatus: 200,
+    methods: ["POST", "GET"],
+  })
+);
 
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
