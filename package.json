@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node index.js && node users.js && node project.js",
+    "start": "node app.js",
     "stop": "taskkill -f -im node.exe"
   },
   "dependencies": {
