@@ -69,8 +69,36 @@ router.post("/", function (req, res) {
 
 /* GET users listing. */
 router.get("/", function (req, res, next) {
+  // alternative write proceudre:
   //res.send('respond with a resource');
-  res.json(myDB);
+  //   var fs = require("fs");
+
+  //   fs.readFile("./users.json", function (err, data) {
+  //     var json = JSON.parse(data);
+  //     json.push(newEntry);
+
+  //     fs.writeFile("./users.json", JSON.stringify(json));
+  //   });
+
+  // reading from the JSON database
+  const fs = require("fs");
+  fs.readFile("./users.json", "utf8", (err, req) => {
+    if (err) {
+      console.log("Error reading file from disk:", err);
+      return;
+    }
+    try {
+      const entryRequested = JSON.parse(req);
+      //   console.log("Customer address is:", customer.address); // => "Customer address is: Infinity Loop Drive"
+    } catch (err) {
+      console.log("Error parsing JSON string:", err);
+    }
+  });
+
+  res.json(entryRequested);
+
+  // initially
+  //   res.json(myDB);
 });
 
 module.exports = router;
