@@ -51,7 +51,7 @@ router.post("/", function (req, res) {
 
   console.log(newEntry);
   //   JSON.stringify(newEntry)
-  myDB.push(newEntry); // req worked also for julika example JSON.stringify
+  //   myDB.push(newEntry); // req worked also for julika example JSON.stringify
   console.log("New entry added: ", myDB);
 
   jsonReader("./users.json", (err, newEntry) => {
@@ -81,6 +81,7 @@ router.get("/", function (req, res, next) {
   //   });
 
   // reading from the JSON database
+  let entry;
   const fs = require("fs");
   fs.readFile("./users.json", "utf8", (err, req) => {
     if (err) {
@@ -88,14 +89,14 @@ router.get("/", function (req, res, next) {
       return;
     }
     try {
-      const entryRequested = JSON.parse(req);
+      entry = JSON.parse(req);
       //   console.log("Customer address is:", customer.address); // => "Customer address is: Infinity Loop Drive"
     } catch (err) {
       console.log("Error parsing JSON string:", err);
     }
   });
 
-  res.json(entryRequested);
+  res.json(entry);
 
   // initially
   //   res.json(myDB);
